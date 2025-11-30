@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  background: radial-gradient(circle at 20% 20%, #e8f1ff 0, transparent 25%),
+    radial-gradient(circle at 80% 0%, #ffe9ec 0, transparent 25%),
+    #f1f5f9;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
