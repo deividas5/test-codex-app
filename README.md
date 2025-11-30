@@ -3,6 +3,7 @@
 A simple warehouse dashboard with a Java 21 Spring Boot backend and a React.js frontend. The backend uses an in-memory H2 database for quick setup and includes JWT-based authentication for login and registration.
 
 ## Prerequisites
+- Java 21+ JDK (not just a JRE, because Maven needs `javac` to compile)
 - Java 21+
 - Maven 3.9+
 - Node.js 18+ and npm
