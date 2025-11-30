@@ -4,7 +4,6 @@ A simple warehouse dashboard with a Java 21 Spring Boot backend and a React.js f
 
 ## Prerequisites
 - Java 21+ JDK (not just a JRE, because Maven needs `javac` to compile)
-- Java 21+
 - Maven 3.9+
 - Node.js 18+ and npm
 
