@@ -1,0 +1,13 @@
+<div xmlns:th="http://www.thymeleaf.org" th:fragment="fields">
+    <h3>Required fields</h3>
+    <div th:if="${#lists.isEmpty(fields)}">Select report type(s) to load fields.</div>
+    <div th:each="field : ${fields}">
+        <label th:text="${field.label}"></label>
+        <input th:if="${field.type != 'select'}" th:type="${field.type}" th:name="${field.name}" th:required="${field.required}">
+        <select th:if="${field.type == 'select'}" th:name="${field.name}" th:required="${field.required}">
+            <option value="">--Select--</option>
+            <option th:each="opt : ${field.options}" th:value="${opt.optionValue}" th:text="${opt.optionLabel}"></option>
+        </select>
+        <small th:text="${field.helpText}"></small>
+    </div>
+</div>

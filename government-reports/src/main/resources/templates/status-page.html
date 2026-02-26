@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Report Status</title>
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+</head>
+<body>
+<h1>Request <span th:text="${request.id}"></span> status</h1>
+<div id="status-content" hx-get="|/reports/status/${request.id}/fragment|" hx-trigger="load, every 2s" hx-swap="innerHTML">
+    <div th:replace="~{fragments/status-fragment :: content}"></div>
+</div>
+</body>
+</html>

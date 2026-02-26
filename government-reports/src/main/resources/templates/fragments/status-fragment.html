@@ -1,0 +1,18 @@
+<div xmlns:th="http://www.thymeleaf.org" th:fragment="content">
+    <p>Overall status: <strong th:text="${request.status}"></strong></p>
+    <p>Progress: <span th:text="${request.completedReports}"></span>/<span th:text="${request.totalReports}"></span></p>
+    <table border="1">
+        <tr><th>Job</th><th>Status</th><th>Error</th><th>Actions</th></tr>
+        <tr th:each="job : ${jobs}">
+            <td th:text="${job.reportType}"></td>
+            <td th:text="${job.status}"></td>
+            <td th:text="${job.errorMessage}"></td>
+            <td>
+                <a th:if="${job.generatedHtml != null}" th:href="|/reports/jobs/${job.id}/download|">Download</a>
+                <form th:if="${job.status.name() == 'FAILED'}" th:action="|/reports/jobs/${job.id}/retry|" method="post" style="display:inline;">
+                    <button type="submit">Retry</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
