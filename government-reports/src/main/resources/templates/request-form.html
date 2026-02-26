@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Government Reports Request</title>
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+</head>
+<body>
+<h1>Create Government Report Request</h1>
+<div th:if="${error}" th:text="${error}" style="color:red;"></div>
+<form method="post" action="/reports/request">
+    <h3>Report Types</h3>
+    <div th:each="type : ${reportTypes}">
+        <label>
+            <input type="checkbox" name="reportTypes" th:value="${type.reportName}"
+                   hx-get="/api/report-fields" hx-target="#dynamic-fields" hx-include="[name='reportTypes']" hx-trigger="change">
+            <span th:text="${type.description}"></span>
+        </label>
+    </div>
+    <div id="dynamic-fields" th:replace="~{fragments/field-fragment :: fields}"></div>
+    <button type="submit">Submit request</button>
+</form>
+</body>
+</html>
